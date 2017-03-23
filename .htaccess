@@ -1,0 +1,29 @@
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteRule    ^$ app/webroot/    [L]
+   RewriteRule    (.*) app/webroot/$1 [L]
+</IfModule>
+
+# ブラウザへのキャッシュの設定
+<IfModule mod_expires.c>
+  ExpiresActive On
+  # キャッシュの初期化（1秒に設定）
+  ExpiresDefault "access plus 1 seconds"
+ 
+  # MIME Type ごとのキャッシュ設定
+  ExpiresByType text/css "access plus 1 weeks"
+  ExpiresByType text/js "access plus 1 weeks"
+  ExpiresByType text/javascript "access plus 1 weeks"
+  ExpiresByType image/gif "access plus 1 weeks"
+  ExpiresByType image/jpeg "access plus 1 weeks"
+  ExpiresByType image/png "access plus 1 weeks"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 weeks"
+  ExpiresByType application/javascript "access plus 1 weeks"
+  ExpiresByType application/x-javascript "access plus 1 weeks"
+  ExpiresByType application/x-shockwave-flash "access plus 1 weeks"
+  ExpiresByType application/x-font-ttf "access plus 1 year"
+  ExpiresByType application/x-font-woff "access plus 1 year"
+  ExpiresByType application/x-font-opentype "access plus 1 year"
+  ExpiresByType application/vnd.ms-fontobject "access plus 1 year"
+</IfModule>
